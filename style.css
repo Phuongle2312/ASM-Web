@@ -7,6 +7,10 @@ body {
   background: url("./image/lovepik-cool-smoke-vibrating-sports-wind-mens-day-background-image_605597531.jpg")
     no-repeat center center/cover;
 }
+.banner h1,
+.banner p {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
 
 .card img {
   height: 250px;
