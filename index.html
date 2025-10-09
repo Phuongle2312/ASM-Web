@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
 </head>
-<header>
-
-</header>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -23,9 +21,11 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="#">Trang chủ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#nike">Nike</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#adidas">Adidas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#puma">Puma</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../ASM-Web/html/product.html">Sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../ASM-Web/html/contact.html">Liên Hệ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../ASM-Web/html/service.html">Dịch vụ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../ASM-Web/html/notification.html">Thông báo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../ASM-Web/html/card.html">Giỏ Hàng</a></li>
                     <li class="nav-item">
                         <button class="btn btn-warning ms-3" data-bs-toggle="modal" data-bs-target="#cartModal">
                             🛒 Giỏ hàng (<span id="cart-count">0</span>)
@@ -57,8 +57,10 @@
                         <div class="card-body text-center">
                             <h5 class="card-title">Nike Mercurial Superfly 9</h5>
                             <p class="text-muted">2.500.000 đ</p>
+                            <button class="btn btn-warning" class="view-details">Xem chi tiết</button>
                             <button class="btn btn-warning add-to-cart" data-name="Nike Mercurial Superfly 9"
-                                data-price="3000000">Mua ngay</button>
+                                alt="Giày Nike Mercurial Superfly 9 chính hãng" data-price="3000000">Thêm vào giỏ
+                                hàng</button>
                         </div>
                     </div>
                 </div>
@@ -79,8 +81,10 @@
                         <div class="card-body text-center">
                             <h5 class="card-title">Adidas Predator Accuracy</h5>
                             <p class="text-muted">2.800.000 đ</p>
+                            <button class="btn btn-warning" class="view-details">Xem chi tiết</button>
                             <button class="btn btn-warning add-to-cart" data-name="Adidas Predator Accuracy"
-                                data-price="2800000">Mua ngay</button>
+                                alt="Giày Adidas Predator Accuracy chính hãng" data-price="2800000">Thêm vào giỏ
+                                hàng</button>
                         </div>
                     </div>
                 </div>
@@ -100,36 +104,13 @@
                         <div class="card-body text-center">
                             <h5 class="card-title">Puma Future Ultimate</h5>
                             <p class="text-muted">2.200.000 đ</p>
+                            <button class="btn btn-warning" class="view-details">Xem chi tiết</button>
                             <button class="btn btn-warning add-to-cart" data-name="Puma Future Ultimate"
-                                data-price="2200000">Mua ngay</button>
+                                alt="Giày Puma Future Ultimate chính hãng" data-price="2200000">Thêm vào giỏ
+                                hàng</button>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Product Detail -->
-
-    <section id="product-detail" class="py-5 bg-light">
-        <div class="container text-center">
-            <h3>Chi tiết sản phẩm mẫu</h3>
-            <img id="mainImage" src="./image/Nike/ZM+SUPERFLY+10+ELITE+FG.avif" width="300"
-                class="rounded shadow mb-3" />
-            <div>
-                <img src="./image/Nike/ZM+SUPERFLY+10+ELITE+FG.avif" width="80" class="small-img border" />
-                <img src="./image/Adidas/Giay_DJa_Bong_Turf_Predator_Accuracy.4_trang_GY9995_22_model.avif" width="80"
-                    class="small-img border" />
-                <img src="./image/Puma/Giày-bóng-đá-FUTURE-8-ULTIMATE-AG.avif" width="80" class="small-img border" />
-            </div>
-
-            <div class="mt-4">
-                <label for="quantity" class="form-label">Số lượng:</label>
-                <input id="quantity" type="number" value="1" min="1" class="form-control w-25 mx-auto text-center" />
-                <button id="mua-ngay" data-name="Nike Mercurial Superfly 9" data-price="2500000"
-                    class="btn btn-success mt-3">
-                    🛍️ Mua ngay
-                </button>
             </div>
         </div>
     </section>
@@ -170,13 +151,8 @@
 
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2025 Football Shoes Shop | All Rights Reserved</p>
+        &copy; 2024 Football Shoes. All rights reserved.
     </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="./script.js"></script>
-
-
 </body>
 
 </html>

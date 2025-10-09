@@ -7,118 +7,102 @@
     <title>Products</title>
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../script.js"></script>
 </head>
-<header>
-    <div>
-
-</header>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="./index.html">⚽ Football Store</a>
+            <a class="navbar-brand fw-bold" href="../index.html">👟 Football Shoes</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="../index.html">Trang chủ</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#">Sản phẩm</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Giỏ hàng</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../html/product.html">Sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../html/contact.html">Liên hệ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../html/service.html">Dịch vụ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../html/notification.html">Thông báo</a></li>
+                    <li class="nav-item">
+                        <button class="btn btn-warning ms-3" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            🛒 Giỏ hàng (<span id="cart-count">0</span>)
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Product Detail -->
-    <div class="container my-5">
-        <div class="row">
+    <!-- Header -->
+    <header class="text-center text-white bg-dark py-5 mt-5">
+        <h1 class="fw-bold">Tất cả sản phẩm</h1>
+        <p>Khám phá những đôi giày bóng đá chính hãng mới nhất</p>
+    </header>
 
-            <!-- Product Image -->
-            <div class="col-md-6">
-                <img src="../image/Nike/ZM+SUPERFLY+10+ELITE+FG.avif" class="img-fluid border rounded mb-3"
-                    id="mainImage" alt="Nike Mercurial Superfly 9">
-                <div class="d-flex gap-2">
-                    <img src="../image/Nike/ZM+SUPERFLY+10+ELITE+FG (1).avif" class="img-thumbnail small-img" alt="Nike"
-                        style="width:80px;cursor:pointer;">
-                    <img src="../image/Nike/ZM+SUPERFLY+10+ELITE+FG (2).avif" class="img-thumbnail small-img" alt="Nike"
-                        style="width:80px;cursor:pointer;">
-                    <img src="../image/Nike/ZM+SUPERFLY+10+ELITE+FG (3).avif" class="img-thumbnail small-img" alt="Nike"
-                        style="width:80px;cursor:pointer;">
+    <!-- Products List -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4" id="product-list">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Detail Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-warning">
+                    <h5 class="modal-title" id="productModalLabel">Chi tiết sản phẩm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="modal-image" src="" class="img-fluid mb-3 rounded" alt="Sản phẩm">
+                    <h4 id="modal-name"></h4>
+                    <p id="modal-desc" class="text-muted"></p>
+                    <h5 id="modal-price" class="fw-bold text-danger mb-3"></h5>
+                    <button id="modal-add-cart" class="btn btn-warning">Thêm vào giỏ hàng</button>
                 </div>
             </div>
-
-            <!-- Product Info -->
-            <div class="col-md-6">
-                <h2>Nike Mercurial Superfly 9</h2>
-                <p class="text-muted">Giày đá bóng chính hãng Nike</p>
-                <h4 class="text-danger">3.200.000đ</h4>
-                <p>Được thiết kế cho tốc độ và sự linh hoạt, Nike Mercurial là sự lựa chọn hàng đầu của các cầu thủ
-                    chuyên nghiệp.</p>
-
-                <!-- Size Options -->
-                <div class="mb-3">
-                    <label for="size" class="form-label fw-bold">Chọn size:</label>
-                    <select class="form-select w-50" id="size">
-                        <option>39</option>
-                        <option>40</option>
-                        <option>41</option>
-                        <option>42</option>
-                        <option>43</option>
-                    </select>
-                </div>
-
-                <!-- Quantity -->
-                <div class="mb-3">
-                    <label for="qty" class="form-label fw-bold">Số lượng:</label>
-                    <input type="number" id="qty" class="form-control w-25" min="1" value="1">
-                </div>
-
-                <!-- Buttons -->
-                <button class="btn btn-warning me-2">🛒 Thêm vào giỏ</button>
-                <button class="btn btn-danger">Mua ngay</button>
-            </div>
-
         </div>
     </div>
 
-    <!-- Related Products -->
-    <div class="container my-5">
-        <h3 class="mb-4">Sản phẩm liên quan</h3>
-        <div class="row g-4">
-            <div class="col-md-3">
-                <div class="card h-100 shadow">
-                    <img src="../image/Adidas/Giay_DJa_Bong_Turf_Predator_Accuracy.4_trang_GY9995_22_model.avif"
-                        class="card-img-top" alt="Adidas Predator">
-                    <div class="card-body text-center">
-                        <h6 class="card-title">Adidas Predator</h6>
-                        <p class="text-danger fw-bold">2.800.000đ</p>
-                        <a href="./product.html" class="btn btn-outline-dark btn-sm">Xem chi tiết</a>
-                    </div>
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-warning">
+                    <h5 class="modal-title">🛒 Giỏ hàng</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-            </div>
 
-            <div class="col-md-3">
-                <div class="card h-100 shadow">
-                    <img src="../image/Puma/Giày-bóng-đá-FUTURE-8-ULTIMATE-AG.avif" class="card-img-top"
-                        alt="Puma Future">
-                    <div class="card-body text-center">
-                        <h6 class="card-title">Puma Future</h6>
-                        <p class="text-danger fw-bold">2.500.000đ</p>
-                        <a href="./product.html" class="btn btn-outline-dark btn-sm">Xem chi tiết</a>
-                    </div>
+                <div class="modal-body">
+                    <table class="table text-center align-middle">
+                        <thead>
+                            <tr>
+                                <th>Sản phẩm</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Thành tiền</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-items">
+                            <tr>
+                                <td colspan="5">Giỏ hàng trống</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h5 class="text-end mt-3">Tổng cộng: <span id="cart-total">0</span> đ</h5>
                 </div>
-            </div>
 
-            <div class="col-md-3">
-                <div class="card h-100 shadow">
-                    <img src="../image/Nike/PHANTOM+6+LOW+ELITE+LE+FG.avif" class="card-img-top" alt="Nike Phantom">
-                    <div class="card-body text-center">
-                        <h6 class="card-title">Nike Phantom</h6>
-                        <p class="text-danger fw-bold">3.000.000đ</p>
-                        <a href="./product.html" class="btn btn-outline-dark btn-sm">Xem chi tiết</a>
-                    </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success">Thanh toán</button>
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
                 </div>
             </div>
         </div>
@@ -129,9 +113,16 @@
         <p>&copy; 2025 Football Store | Thiết kế bởi Bạn ⚡</p>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <scrip src="./script.js">
-        </script>
+    <script>
+        const smallImgs = document.querySelectorAll('.small-img');
+        const mainImg = document.getElementById('mainImage');
+        smallImgs.forEach(img => {
+            img.addEventListener('click', () => {
+                mainImg.src = img.src;
+            });
+        });
+
+    </script>
 </body>
 
 </html>

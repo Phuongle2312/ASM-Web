@@ -1,100 +1,187 @@
-let cart = [];
+// ==========================
+// CART LOGIC
+// ==========================
+const cart = [];
+const cartCount = document.getElementById("cart-count");
+const cartItems = document.getElementById("cart-items");
+const cartTotal = document.getElementById("cart-total");
 
-// Mua ngay
-const muaNgayBtn = document.getElementById("mua-ngay");
-if (muaNgayBtn) {
-  muaNgayBtn.addEventListener("click", function () {
-    const quantity = parseInt(document.getElementById("quantity").value);
-    const name = this.dataset.name;
-    const price = parseInt(this.dataset.price) || 0;
+// Load cart
+window.addEventListener("DOMContentLoaded", () => {
+  const saved = localStorage.getItem("cart");
+  if (saved) {
+    const data = JSON.parse(saved);
+    cart.push(...data);
+  }
+  renderCart();
 
-    if (quantity > 0) {
-      let item = cart.find((p) => p.name === name);
-      if (item) {
-        item.quantity += quantity;
-      } else {
-        cart.push({ name, price, quantity });
-      }
-      updateCart();
-      alert("Đã thêm vào giỏ hàng");
-    }
-  });
-}
-// Nút thêm vào giỏ hàng ở danh sách
-document.querySelectorAll(".add-to-cart").forEach((button) => {
-  button.addEventListener("click", function () {
-    const name = this.dataset.name;
-    const price = parseInt(this.dataset.price);
+  // Nếu có phần danh sách sản phẩm → render
+  if (document.getElementById("product-list")) renderProducts();
+});
 
-    const item = cart.find((p) => p.name === name);
-    if (item) {
-      item.quantity++;
+// Add to cart button
+document.querySelectorAll(".add-to-cart").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const name = btn.dataset.name;
+    const price = parseInt(btn.dataset.price);
+    const found = cart.find((item) => item.name === name);
+    if (found) {
+      found.quantity++;
     } else {
       cart.push({ name, price, quantity: 1 });
     }
-    updateCart();
+    saveCart();
+    renderCart();
   });
 });
 
-// Cập nhật giỏ hàng
-function updateCart() {
-  const cartItems = document.getElementById("cart-items");
-  const cartCount = document.getElementById("cart-count");
-  const cartTotal = document.getElementById("cart-total");
-
+function renderCart() {
   if (!cartItems || !cartCount || !cartTotal) return;
-
   cartItems.innerHTML = "";
   let total = 0;
 
   if (cart.length === 0) {
-    cartItems.innerHTML = '<tr><td colspan="5">Giỏ hàng trống</td></tr>';
+    cartItems.innerHTML = `<tr><td colspan="5">Giỏ hàng trống</td></tr>`;
   } else {
     cart.forEach((item, index) => {
-      const row = `
-            <tr>
-              <td>${item.name}</td>
-              <td>${item.price.toLocaleString()} đ</td>
-              <td>${item.quantity}</td>
-              <td>${(item.price * item.quantity).toLocaleString()} đ</td>
-              <td><button class="btn btn-sm btn-danger" onclick="removeItem(${index})">Xóa</button></td>
-            </tr>
-          `;
-      cartItems.innerHTML += row;
-      total += item.price * item.quantity;
+      const subtotal = item.price * item.quantity;
+      total += subtotal;
+      cartItems.innerHTML += `
+                <tr>
+                    <td>${item.name}</td>
+                    <td>${item.price.toLocaleString()} đ</td>
+                    <td>
+                        <input type="number" min="1" value="${item.quantity}"
+                            class="form-control w-50 mx-auto text-center"
+                            onchange="updateQuantity(${index}, this.value)">
+                    </td>
+                    <td>${subtotal.toLocaleString()} đ</td>
+                    <td>
+                        <button class="btn btn-sm btn-danger" onclick="removeItem(${index})">🗑️</button>
+                    </td>
+                </tr>
+            `;
     });
   }
 
-  cartCount.textContent = cart.length;
+  cartCount.textContent = cart.reduce((sum, i) => sum + i.quantity, 0);
   cartTotal.textContent = total.toLocaleString();
 }
 
-// Xóa sản phẩm khỏi giỏ hàng
-function removeItem(index) {
-  cart.splice(index, 1);
-  updateCart();
+function saveCart() {
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-// Chuyển ảnh chính khi bấm thumbnail
-const mainImage = document.getElementById("mainImage");
-const smallImgs = document.querySelectorAll(".small-img");
-smallImgs.forEach((img) => {
-  img.addEventListener("click", () => {
-    mainImage.src = img.src;
+function updateQuantity(index, qty) {
+  cart[index].quantity = parseInt(qty);
+  saveCart();
+  renderCart();
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  saveCart();
+  renderCart();
+}
+
+// ==========================
+// PRODUCT DETAIL LOGIC
+// ==========================
+
+// Danh sách sản phẩm
+const products = [
+  {
+    name: "Nike Mercurial Superfly 9",
+    price: 2500000,
+    image: "./image/Nike/Giay_Da_Bong_Nike_Mercurial_Superfly_9_Elite_FG.avif",
+    desc: "Giày đá bóng Nike chính hãng, thiết kế nhẹ, ôm chân và tăng tốc nhanh chóng.",
+  },
+  {
+    name: "Adidas Predator Accuracy",
+    price: 2800000,
+    image:
+      "./image/Adidas/Giay_DJa_Bong_Turf_Predator_Accuracy.4_trang_GY9995_22_model.avif",
+    desc: "Dòng giày nổi tiếng của Adidas giúp kiểm soát bóng hoàn hảo và độ bám cao.",
+  },
+  {
+    name: "Puma Future Ultimate",
+    price: 2200000,
+    image: "./image/Puma/Giày-bóng-đá-FUTURE-8-ULTIMATE-AG.avif",
+    desc: "Giày Puma với công nghệ Future 8, giúp di chuyển linh hoạt và cực kỳ êm ái.",
+  },
+];
+
+// Render danh sách sản phẩm cho product.html
+function renderProducts() {
+  const list = document.getElementById("product-list");
+  if (!list) return;
+
+  list.innerHTML = products
+    .map(
+      (p) => `
+        <div class="col-md-4">
+            <div class="card h-100 shadow">
+                <img src="${p.image}" class="card-img-top" alt="${p.name}">
+                <div class="card-body text-center">
+                    <h5 class="card-title">${p.name}</h5>
+                    <p class="text-muted">${p.price.toLocaleString()} đ</p>
+                    <button class="btn btn-warning view-details" data-name="${
+                      p.name
+                    }">Xem chi tiết</button>
+                    <button class="btn btn-warning add-to-cart" data-name="${
+                      p.name
+                    }" data-price="${p.price}">
+                        Thêm vào giỏ hàng
+                    </button>
+                </div>
+            </div>
+        </div>
+    `
+    )
+    .join("");
+
+  // Gán lại sự kiện
+  list.querySelectorAll(".add-to-cart").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const name = btn.dataset.name;
+      const price = parseInt(btn.dataset.price);
+      const found = cart.find((item) => item.name === name);
+      if (found) {
+        found.quantity++;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
+      saveCart();
+      renderCart();
+    });
   });
-});
 
-updateCart();
-
-// Lắng nghe thay đổi số lượng
-document.querySelectorAll(".qty").forEach((input) => {
-  input.addEventListener("input", updateCart);
-});
-
-// Xóa sản phẩm
-document.querySelectorAll(".remove-btn").forEach((btn) => {
-  btn.addEventListener("click", function () {
-    this.closest("tr").remove();
-    updateCart();
+  list.querySelectorAll(".view-details").forEach((btn) => {
+    btn.addEventListener("click", () => showProductDetail(btn.dataset.name));
   });
-});
+}
+
+// Hiển thị modal chi tiết sản phẩm
+function showProductDetail(name) {
+  const product = products.find((p) => p.name === name);
+  if (!product) return;
+
+  const modal = new bootstrap.Modal(document.getElementById("productModal"));
+  document.getElementById("modal-image").src = product.image;
+  document.getElementById("modal-name").textContent = product.name;
+  document.getElementById("modal-desc").textContent = product.desc;
+  document.getElementById("modal-price").textContent =
+    product.price.toLocaleString() + " đ";
+
+  const addBtn = document.getElementById("modal-add-cart");
+  addBtn.onclick = () => {
+    const found = cart.find((item) => item.name === product.name);
+    if (found) found.quantity++;
+    else cart.push({ name: product.name, price: product.price, quantity: 1 });
+    saveCart();
+    renderCart();
+    modal.hide();
+  };
+
+  modal.show();
+}
