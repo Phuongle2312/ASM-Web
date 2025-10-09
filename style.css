@@ -1,7 +1,19 @@
 body {
   font-family: "Segoe UI", sans-serif;
+  scroll-behavior: smooth;
+  background-color: #f8f9fa;
 }
-
+/*Navbar*/
+.navbar {
+  transition: background-color 0.3s;
+}
+.navbar-brand {
+  color: #ffc107 !important;
+}
+.navbar .nav-link:hover {
+  color: #ffc107 !important;
+  transition: 0.3s;
+}
 .banner {
   height: 80vh;
   background: url("./image/lovepik-cool-smoke-vibrating-sports-wind-mens-day-background-image_605597531.jpg")
@@ -44,9 +56,62 @@ body {
 /*Button*/
 .btn-warning {
   font-weight: 600;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+.btn-warning:hover {
+  background-color: #ffca2c;
+  transform: translateY(-2px);
+}
+/*Modal giỏ hàng*/
+.modal-content {
+  border-radius: 15px;
+  overflow: hidden;
+}
+.modal-header {
+  font-weight: bold;
 }
 /*Footer*/
 footer {
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
+  background: radial-gradient(circle at top, #222 0%, #000 100%);
+  color: #ddd;
+  position: relative;
+  overflow: hidden;
+}
+footer h5 {
+  font-weight: bold;
+}
+footer p,
+footer a {
+  font-size: 0.95rem;
+}
+footer a:hover {
+  color: #ffc107 !important;
+  transition: color 0.3s;
+}
+footer .btn-outline-light {
+  border-color: #ffc107;
+}
+footer .btn-outline-light:hover {
+  background-color: #ffc107;
+  color: #000;
+  border-color: #ffc107;
+}
+footer hr {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+/* Hiệu ứng nhỏ*/
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.card:hover {
+  animation: float 1s ease-in-out infinite;
 }
