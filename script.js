@@ -91,22 +91,22 @@ function removeItem(index) {
 // Danh sách sản phẩm
 const products = [
   {
-    name: "Nike Mercurial Superfly 9",
-    price: 2500000,
-    image: "./image/Nike/Giay_Da_Bong_Nike_Mercurial_Superfly_9_Elite_FG.avif",
+    name: "Nike Mercurial Superfly 10 Elite FG",
+    price: 8200000,
+    image: "../image/nike/ZM+SUPERFLY+10+ELITE+FG (2).avif",
     desc: "Giày đá bóng Nike chính hãng, thiết kế nhẹ, ôm chân và tăng tốc nhanh chóng.",
   },
   {
     name: "Adidas Predator Accuracy",
-    price: 2800000,
+    price: 1600000,
     image:
-      "./image/Adidas/Giay_DJa_Bong_Turf_Predator_Accuracy.4_trang_GY9995_22_model.avif",
+      "../image/Adidas/Giay_DJa_Bong_Turf_Predator_Accuracy.4_trang_GY9995_22_model.avif",
     desc: "Dòng giày nổi tiếng của Adidas giúp kiểm soát bóng hoàn hảo và độ bám cao.",
   },
   {
     name: "Puma Future Ultimate",
-    price: 2200000,
-    image: "./image/Puma/Giày-bóng-đá-FUTURE-8-ULTIMATE-AG.avif",
+    price: 3600000,
+    image: "../image/Puma/Giày-bóng-đá-FUTURE-8-ULTIMATE-AG.avif",
     desc: "Giày Puma với công nghệ Future 8, giúp di chuyển linh hoạt và cực kỳ êm ái.",
   },
 ];
