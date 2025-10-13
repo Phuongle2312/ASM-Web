@@ -51,63 +51,63 @@
             </div>
         </div>
     </section>
-
-    <!-- Product Detail Modal -->
-    <div class="modal fade" id="productModal" tabindex="-1">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-warning">
-                    <h5 class="modal-title" id="productModalLabel">Chi tiết sản phẩm</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <img id="modal-image" src="" class="img-fluid mb-3 rounded" alt="Sản phẩm">
-                    <h4 id="modal-name"></h4>
-                    <p id="modal-desc" class="text-muted"></p>
-                    <h5 id="modal-price" class="fw-bold text-danger mb-3"></h5>
-                    <button id="modal-add-cart" class="btn btn-warning">Thêm vào giỏ hàng</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cart Modal -->
-    <div class="modal fade" id="cartModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header bg-warning">
-                    <h5 class="modal-title">🛒 Giỏ hàng</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-
-                <div class="modal-body">
-                    <table class="table text-center align-middle">
-                        <thead>
-                            <tr>
-                                <th>Sản phẩm</th>
-                                <th>Giá</th>
-                                <th>Số lượng</th>
-                                <th>Thành tiền</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody id="cart-items">
-                            <tr>
-                                <td colspan="5">Giỏ hàng trống</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <h5 class="text-end mt-3">Tổng cộng: <span id="cart-total">0</span> đ</h5>
-                </div>
-
-                <div class="modal-footer">
-                    <button class="btn btn-success">Thanh toán</button>
-                    <button class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+    <main>
+        <!-- Product Detail Modal -->
+        <div class="modal fade" id="productModal" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-warning">
+                        <h5 class="modal-title" id="productModalLabel">Chi tiết sản phẩm</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <img id="modal-image" src="" class="img-fluid mb-3 rounded" alt="Sản phẩm">
+                        <h4 id="modal-name"></h4>
+                        <p id="modal-desc" class="text-muted"></p>
+                        <h5 id="modal-price" class="fw-bold text-danger mb-3"></h5>
+                        <button id="modal-add-cart" class="btn btn-warning">Thêm vào giỏ hàng</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
+        <!-- Cart Modal -->
+        <div class="modal fade" id="cartModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-warning">
+                        <h5 class="modal-title">🛒 Giỏ hàng</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <table class="table text-center align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Thành tiền</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="cart-items">
+                                <tr>
+                                    <td colspan="5">Giỏ hàng trống</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h5 class="text-end mt-3">Tổng cộng: <span id="cart-total">0</span> đ</h5>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-success">Thanh toán</button>
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
     <!-- Footer -->
     <footer class="bg-dark text-light pt-5 pb-3 mt-5">
         <div class="container">
