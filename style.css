@@ -7,6 +7,12 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
@@ -27,10 +33,16 @@ main {
   height: 80vh;
   background: url("./image/lovepik-cool-smoke-vibrating-sports-wind-mens-day-background-image_605597531.jpg")
     no-repeat center center/cover;
+  position: relative;
+  color: white;
 }
 .banner h1,
 .banner p {
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+.banner .container {
+  position: relative;
+  z-index: 2;
 }
 
 .card img {
@@ -122,6 +134,7 @@ footer hr {
     transform: translateY(0);
   }
 }
+
 .card:hover {
   animation: float 1s ease-in-out infinite;
 }

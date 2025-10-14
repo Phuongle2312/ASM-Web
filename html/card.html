@@ -39,60 +39,60 @@
             </div>
         </div>
     </nav>
+    <main>
+        <!-- Cart -->
+        <div class="container my-5">
+            <h2 class="mb-4 text-center">🛒 Giỏ hàng của bạn</h2>
 
-    <!-- Cart -->
-    <div class="container my-5">
-        <h2 class="mb-4 text-center">🛒 Giỏ hàng của bạn</h2>
+            <div class="table-responsive">
+                <table class="table align-middle text-center">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Ảnh</th>
+                            <th>Sản phẩm</th>
+                            <th>Giá</th>
+                            <th>Số lượng</th>
+                            <th>Thành tiền</th>
+                            <th>Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cartBody">
+                        <!-- Product 1 -->
+                        <tr>
+                            <td><img src="../image/Nike/ZM+SUPERFLY+10+ELITE+FG.avif" class="cart-img" alt="Nike"></td>
+                            <td>Nike Mercurial Superfly 9</td>
+                            <td class="price">3200000</td>
+                            <td><input type="number" class="form-control qty" min="1" value="1"></td>
+                            <td class="subtotal">3.200.000đ</td>
+                            <td><button class="btn btn-sm btn-danger remove-btn">X</button></td>
+                        </tr>
+                        <!-- Product 2 -->
+                        <tr>
+                            <td><img src="../image/Adidas/Giay_DJa_Bong_Turf_Predator_Accuracy.4_trang_GY9995_22_model.avif"
+                                    class="cart-img" alt="Adidas"></td>
+                            <td>Adidas Predator Edge</td>
+                            <td class="price">2800000</td>
+                            <td><input type="number" class="form-control qty" min="1" value="2"></td>
+                            <td class="subtotal">5.600.000đ</td>
+                            <td><button class="btn btn-sm btn-danger remove-btn">X</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <div class="table-responsive">
-            <table class="table align-middle text-center">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Ảnh</th>
-                        <th>Sản phẩm</th>
-                        <th>Giá</th>
-                        <th>Số lượng</th>
-                        <th>Thành tiền</th>
-                        <th>Xóa</th>
-                    </tr>
-                </thead>
-                <tbody id="cartBody">
-                    <!-- Product 1 -->
-                    <tr>
-                        <td><img src="../image/Nike/ZM+SUPERFLY+10+ELITE+FG.avif" class="cart-img" alt="Nike"></td>
-                        <td>Nike Mercurial Superfly 9</td>
-                        <td class="price">3200000</td>
-                        <td><input type="number" class="form-control qty" min="1" value="1"></td>
-                        <td class="subtotal">3.200.000đ</td>
-                        <td><button class="btn btn-sm btn-danger remove-btn">X</button></td>
-                    </tr>
-                    <!-- Product 2 -->
-                    <tr>
-                        <td><img src="../image/Adidas/Giay_DJa_Bong_Turf_Predator_Accuracy.4_trang_GY9995_22_model.avif"
-                                class="cart-img" alt="Adidas"></td>
-                        <td>Adidas Predator Edge</td>
-                        <td class="price">2800000</td>
-                        <td><input type="number" class="form-control qty" min="1" value="2"></td>
-                        <td class="subtotal">5.600.000đ</td>
-                        <td><button class="btn btn-sm btn-danger remove-btn">X</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Cart Summary -->
-        <div class="d-flex justify-content-end mt-4">
-            <div class="card p-3 shadow" style="width: 300px;">
-                <h5>Tổng kết đơn hàng</h5>
-                <p class="mb-1">Tạm tính: <span id="subtotal">0đ</span></p>
-                <p class="mb-1">Phí ship: <span id="shipping">30.000đ</span></p>
-                <hr>
-                <h5>Tổng cộng: <span id="total">0đ</span></h5>
-                <button class="btn btn-warning w-100 mt-2">Thanh toán</button>
+            <!-- Cart Summary -->
+            <div class="d-flex justify-content-end mt-4">
+                <div class="card p-3 shadow" style="width: 300px;">
+                    <h5>Tổng kết đơn hàng</h5>
+                    <p class="mb-1">Tạm tính: <span id="subtotal">0đ</span></p>
+                    <p class="mb-1">Phí ship: <span id="shipping">30.000đ</span></p>
+                    <hr>
+                    <h5>Tổng cộng: <span id="total">0đ</span></h5>
+                    <button class="btn btn-warning w-100 mt-2">Thanh toán</button>
+                </div>
             </div>
         </div>
-    </div>
-
+    </main>
     <!-- Footer -->
     <footer class="bg-dark text-light pt-5 pb-3 mt-5">
         <div class="container">
@@ -145,7 +145,7 @@
         </div>
     </footer>
 
-    <script src="./script.js"></script>
+
 
 </body>
 
